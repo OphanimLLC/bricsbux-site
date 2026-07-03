@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BRICSBUX — The Multipolar Reserve Currency of the Future™</title>
+<meta name="description" content="BRICSBUX (BUX): a fully sovereign digital asset built by a committee of nations that deeply trust each other. Definitely not a security risk. (Parody.)">
+<style>
+  :root{
+    --bg:#160d0b; --bg2:#1f1210; --panel:#241512; --panel2:#2c1a15;
+    --gold:#d4a843; --gold-dim:#9c7c34; --gold-bright:#f0c860;
+    --red:#a33327; --ink:#ece3d2; --ink-dim:#b3a58c; --ink-faint:#7d715e;
+    --rule:#3d2a20;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--ink);font-family:Georgia,'Times New Roman',serif;line-height:1.6;overflow-x:hidden}
+  a{color:var(--gold-bright)}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+  .small{font-size:.82rem;color:var(--ink-dim)}
+  .eyebrow{font-family:Arial,Helvetica,sans-serif;font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold)}
+
+  /* top banner */
+  .govbar{background:var(--red);color:#f7e9d4;font-family:Arial,Helvetica,sans-serif;font-size:.75rem;letter-spacing:.08em;text-align:center;padding:6px 12px}
+  .govbar b{letter-spacing:.15em}
+
+  header{border-bottom:1px solid var(--rule);background:linear-gradient(180deg,var(--bg2),var(--bg))}
+  .hd{display:flex;align-items:center;gap:14px;padding:16px 0}
+  .hd .name{font-size:1.25rem;letter-spacing:.14em;font-weight:bold;color:var(--gold-bright)}
+  .hd .sub{font-family:Arial,Helvetica,sans-serif;font-size:.68rem;letter-spacing:.2em;color:var(--ink-faint);text-transform:uppercase}
+  .hd nav{margin-left:auto;display:flex;gap:22px;font-family:Arial,Helvetica,sans-serif;font-size:.8rem}
+  .hd nav a{color:var(--ink-dim);text-decoration:none;letter-spacing:.06em}
+  .hd nav a:hover{color:var(--gold-bright)}
+  @media(max-width:700px){.hd nav{display:none}}
+
+  /* hero */
+  .hero{position:relative;padding:84px 0 64px;text-align:center;background:
+    radial-gradient(ellipse 60% 50% at 50% 0%,rgba(212,168,67,.10),transparent 70%)}
+  .hero h1{font-size:clamp(2.1rem,5.4vw,3.6rem);line-height:1.12;letter-spacing:.01em;max-width:820px;margin:22px auto 18px;color:#f5ead2}
+  .hero h1 em{font-style:italic;color:var(--gold-bright)}
+  .hero p.lede{max-width:640px;margin:0 auto 30px;font-size:1.08rem;color:var(--ink-dim)}
+  .badge{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--gold-dim);color:var(--gold-bright);
+    font-family:Arial,Helvetica,sans-serif;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;
+    padding:8px 18px;border-radius:2px;background:rgba(212,168,67,.06)}
+  .ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:8px}
+  .btn{font-family:Arial,Helvetica,sans-serif;font-size:.85rem;letter-spacing:.08em;text-decoration:none;
+    padding:13px 26px;border-radius:2px;text-transform:uppercase}
+  .btn.primary{background:var(--gold);color:#241505;font-weight:bold}
+  .btn.primary:hover{background:var(--gold-bright)}
+  .btn.ghost{border:1px solid var(--rule);color:var(--ink-dim)}
+  .btn.ghost:hover{border-color:var(--gold-dim);color:var(--ink)}
+  .flags{margin-top:44px;font-size:1.7rem;letter-spacing:.35em}
+  .flags .small{display:block;letter-spacing:.05em;margin-top:6px}
+
+  /* stat strip */
+  .stats{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);background:var(--bg2)}
+  .stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:1px}
+  @media(max-width:700px){.stats .wrap{grid-template-columns:repeat(2,1fr)}}
+  .stat{padding:26px 18px;text-align:center;border-left:1px solid var(--rule)}
+  .stat:first-child{border-left:none}
+  @media(max-width:700px){.stat:nth-child(3){border-left:none}.stat{border-top:1px solid var(--rule)}}
+  .stat .n{font-size:1.9rem;color:var(--gold-bright);letter-spacing:.02em}
+  .stat .l{font-family:Arial,Helvetica,sans-serif;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint);margin-top:6px}
+
+  section{padding:76px 0}
+  section h2{font-size:2rem;color:#f5ead2;margin:14px 0 10px}
+  section .lead{max-width:620px;color:var(--ink-dim);margin-bottom:40px}
+
+  .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  @media(max-width:700px){.cards{grid-template-columns:1fr}}
+  .card{background:var(--panel);border:1px solid var(--rule);border-radius:3px;padding:26px 24px}
+  .card h3{color:var(--gold-bright);font-size:1.12rem;margin-bottom:10px;letter-spacing:.02em}
+  .card p{color:var(--ink-dim);font-size:.95rem}
+  .card .fn{display:block;margin-top:12px;font-size:.75rem;color:var(--ink-faint);font-style:italic}
+
+  /* tech */
+  .tech{background:var(--bg2);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+  .specs{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:1px solid var(--rule);border-radius:3px;overflow:hidden}
+  @media(max-width:700px){.specs{grid-template-columns:1fr}}
+  .spec{padding:20px 22px;border-top:1px solid var(--rule);border-left:1px solid var(--rule);background:var(--panel)}
+  .spec:nth-child(-n+2){border-top:none}
+  @media(max-width:700px){.spec{border-left:none;border-top:1px solid var(--rule)}.spec:first-child{border-top:none}}
+  .spec .k{font-family:Arial,Helvetica,sans-serif;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint)}
+  .spec .v{font-family:'Courier New',monospace;color:var(--gold-bright);font-size:1rem;margin-top:4px;word-break:break-all}
+  .spec .note{font-size:.8rem;color:var(--ink-dim);font-style:italic;margin-top:4px}
+
+  /* allocation table */
+  table{width:100%;border-collapse:collapse;font-size:.95rem}
+  th{font-family:Arial,Helvetica,sans-serif;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);text-align:left;padding:10px 14px;border-bottom:1px solid var(--gold-dim)}
+  td{padding:12px 14px;border-bottom:1px solid var(--rule);color:var(--ink-dim)}
+  td:first-child{color:var(--ink)}
+  td.num{font-family:'Courier New',monospace;color:var(--gold-bright);text-align:right}
+  th.num{text-align:right}
+  .tablebox{border:1px solid var(--rule);border-radius:3px;background:var(--panel);padding:6px 0;overflow-x:auto}
+
+  /* roadmap */
+  .road{list-style:none;border-left:2px solid var(--gold-dim);margin-left:8px}
+  .road li{position:relative;padding:0 0 30px 30px}
+  .road li::before{content:'';position:absolute;left:-7px;top:8px;width:12px;height:12px;border-radius:50%;background:var(--gold);border:2px solid var(--bg)}
+  .road .yr{font-family:Arial,Helvetica,sans-serif;font-size:.72rem;letter-spacing:.2em;color:var(--gold-bright)}
+  .road p{color:var(--ink-dim);font-size:.95rem}
+
+  /* faq */
+  .faq details{border:1px solid var(--rule);border-radius:3px;background:var(--panel);margin-bottom:10px}
+  .faq summary{cursor:pointer;padding:16px 20px;color:var(--ink);font-size:1.02rem;list-style:none}
+  .faq summary::before{content:'✦';color:var(--gold);margin-right:12px;font-size:.8rem}
+  .faq details[open] summary{border-bottom:1px solid var(--rule);color:var(--gold-bright)}
+  .faq details p{padding:14px 20px 18px 44px;color:var(--ink-dim);font-size:.95rem}
+
+  /* disclaimer + footer */
+  .parody{background:var(--panel2);border-top:3px solid var(--gold);padding:56px 0}
+  .parody h2{font-size:1.4rem}
+  .parody p{max-width:760px;color:var(--ink-dim);font-size:.92rem;margin-top:12px}
+  footer{padding:34px 0 46px;border-top:1px solid var(--rule);text-align:center}
+  footer .small{max-width:720px;margin:8px auto 0}
+  .sealrow{display:flex;justify-content:center;margin-bottom:14px}
+</style>
+</head>
+<body>
+
+<div class="govbar">⚠ OFFICIAL-LOOKING NOTICE — <b>BRICSBUX</b> is parody. It is not affiliated with BRICS, any government, or common sense. See disclaimer below.</div>
+
+<header>
+  <div class="wrap hd">
+    <svg width="46" height="46" viewBox="0 0 100 100" aria-hidden="true">
+      <circle cx="50" cy="50" r="47" fill="none" stroke="#d4a843" stroke-width="3"/>
+      <circle cx="50" cy="50" r="38" fill="none" stroke="#9c7c34" stroke-width="1"/>
+      <path d="M50 24 L56.5 41 L74 41 L60 52 L65.5 69 L50 58.5 L34.5 69 L40 52 L26 41 L43.5 41 Z" fill="#d4a843"/>
+      <path d="M20 62 q10 14 30 14 q20 0 30-14" fill="none" stroke="#9c7c34" stroke-width="2.5"/>
+    </svg>
+    <div>
+      <div class="name">BRICSBUX</div>
+      <div class="sub">Bureau of Multipolar Monetary Affairs</div>
+    </div>
+    <nav>
+      <a href="#why">Why BUX</a>
+      <a href="#tech">Technology</a>
+      <a href="#allocation">Allocation</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <span class="badge">✓ Definitely Not A Security Risk</span>
+    <h1>The reserve currency of the <em>multipolar future</em>, available today.</h1>
+    <p class="lede">BRICSBUX (BUX) is a fully sovereign digital asset engineered by a committee of nations that deeply, verifiably trust each other. Finally — money answerable to not one government, but five to eleven of them simultaneously.</p>
+    <div class="ctas">
+      <a class="btn primary" href="#faq">Acquire BUX — Coming Soon™</a>
+      <a class="btn ghost" href="#tech">Read the Whitepaper (Untranslated)</a>
+    </div>
+    <div class="flags">
+      🇧🇷 🇷🇺 🇮🇳 🇨🇳 🇿🇦
+      <span class="small">Founding members. Additional members subject to the outcome of future summits about prior summits.</span>
+    </div>
+  </div>
+</div>
+
+<div class="stats">
+  <div class="wrap">
+    <div class="stat"><div class="n">1 BUX = 1 BUX</div><div class="l">Hard peg. Never once broken.</div></div>
+    <div class="stat"><div class="n">5+</div><div class="l">Nations (number varies by summit)</div></div>
+    <div class="stat"><div class="n">0</div><div class="l">Independent audits — zero findings!</div></div>
+    <div class="stat"><div class="n">100%</div><div class="l">Sovereign (from you)</div></div>
+  </div>
+</div>
+
+<section id="why">
+  <div class="wrap">
+    <div class="eyebrow">The Case for BUX</div>
+    <h2>Why BRICSBUX?</h2>
+    <p class="lead">The dollar has dominated global finance for eighty years. Our answer is a currency whose governance model requires Brazil, Russia, India, China, and South Africa to agree on things.</p>
+    <div class="cards">
+      <div class="card">
+        <h3>De-Dollarize Your Wallet</h3>
+        <p>Escape the tyranny of a single central bank by adopting a currency overseen by five of them at once. What could be more decentralized than that?</p>
+        <span class="fn">Voting weights to be finalized. China has suggested a formula.</span>
+      </div>
+      <div class="card">
+        <h3>Military-Grade Security</h3>
+        <p>BUX is protected by military-grade cryptography. For redundancy, several militaries hold the keys.</p>
+        <span class="fn">Key ceremony conducted over an unencrypted conference line for transparency.</span>
+      </div>
+      <div class="card">
+        <h3>Consensus by Consensus</h3>
+        <p>Transactions achieve absolute finality the moment all member states are in complete agreement — a threshold with a flawless record of never having been reached.</p>
+        <span class="fn">Interim finality provided by whoever is hosting the summit.</span>
+      </div>
+      <div class="card">
+        <h3>Truly Borderless</h3>
+        <p>BUX moves frictionlessly across every member border, except the ones currently under dispute, which is only most of them.</p>
+        <span class="fn">See Annex C: "Map (Contested)."</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="tech" class="tech">
+  <div class="wrap">
+    <div class="eyebrow">Blockchain-Grade Blockchain</div>
+    <h2>The Technology</h2>
+    <p class="lead">Unlike lesser projects, BRICSBUX is not a token squatting on someone else's chain. It is a fully sovereign Layer-1 blockchain — because nothing says "trustworthy financial infrastructure" like building the entire bank yourself.</p>
+    <div class="specs">
+      <div class="spec"><div class="k">Chain ID</div><div class="v">BRICSBUX</div><div class="note">Uppercase. Non-standard. We do not follow Western naming conventions.</div></div>
+      <div class="spec"><div class="k">Consensus</div><div class="v">CometBFT (Proof-of-Stake)</div><div class="note">Byzantine fault tolerant, which the founding members considered a personal attack.</div></div>
+      <div class="spec"><div class="k">Native Asset</div><div class="v">ubux &nbsp;·&nbsp; 1 BUX = 1,000,000 microbux</div><div class="note">Divisible to six decimals, matching the number of members who read the whitepaper.</div></div>
+      <div class="spec"><div class="k">Address Format</div><div class="v">brics1…</div><div class="note">Every address begins with "brics1" — so you always know who is watching.</div></div>
+      <div class="spec"><div class="k">Framework</div><div class="v">Cosmos SDK</div><div class="note">Interoperable with the entire Cosmos ecosystem, pending a working group on whether interoperability is a Western plot.</div></div>
+      <div class="spec"><div class="k">Validators</div><div class="v">To be announced</div><div class="note">At the next summit. About the previous summit.</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="allocation">
+  <div class="wrap">
+    <div class="eyebrow">Tokenomics of Trust</div>
+    <h2>Genesis Allocation</h2>
+    <p class="lead">Distributed with perfect equality among founding members, plus two accounts that are none of your business.</p>
+    <div class="tablebox">
+      <table>
+        <thead><tr><th>Account</th><th>Purpose</th><th class="num">Allocation</th></tr></thead>
+        <tbody>
+          <tr><td>🇧🇷 Brazil</td><td>Founding member</td><td class="num">200,000 BUX</td></tr>
+          <tr><td>🇷🇺 Russia</td><td>Founding member</td><td class="num">200,000 BUX</td></tr>
+          <tr><td>🇮🇳 India</td><td>Founding member</td><td class="num">200,000 BUX</td></tr>
+          <tr><td>🇨🇳 China</td><td>Founding member</td><td class="num">200,000 BUX</td></tr>
+          <tr><td>🇿🇦 South Africa</td><td>Founding member</td><td class="num">200,000 BUX</td></tr>
+          <tr><td>🏛 New Development Bank</td><td>Treasury — totally audited</td><td class="num">1,000,000 BUX</td></tr>
+          <tr><td>⚙ Technical Reserve</td><td>Do not ask</td><td class="num">1,000,000 BUX</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small" style="margin-top:12px">Treasury audits are performed annually by whichever delegate is holding the pen.</p>
+  </div>
+</section>
+
+<section id="roadmap">
+  <div class="wrap">
+    <div class="eyebrow">A Proven Track Record of Announcements</div>
+    <h2>Roadmap</h2>
+    <p class="lead">BRICSBUX builds on nearly two decades of decisive momentum.</p>
+    <ul class="road">
+      <li><div class="yr">2009</div><p>A common BRICS currency is announced.</p></li>
+      <li><div class="yr">2015</div><p>The announcement is announced again, with a logo this time.</p></li>
+      <li><div class="yr">2023</div><p>Summit concludes with historic agreement to form a working group to explore a framework for a future discussion.</p></li>
+      <li><div class="yr">2024</div><p>Members agree the currency should exist. Members disagree on the currency, the ledger, the name, and each other.</p></li>
+      <li><div class="yr">2026</div><p><strong style="color:var(--gold-bright)">BRICSBUX launches without them.</strong> You're welcome.</p></li>
+      <li><div class="yr">Q∞</div><p>Dollar replaced any day now.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section id="faq" class="tech">
+  <div class="wrap">
+    <div class="eyebrow">Frequently Avoided Questions</div>
+    <h2>FAQ</h2>
+    <div class="faq" style="margin-top:30px">
+      <details>
+        <summary>Is BUX a security?</summary>
+        <p>No. BUX is a security <em>risk</em>. These are completely different things, and we resent the comparison.</p>
+      </details>
+      <details>
+        <summary>What backs BRICSBUX?</summary>
+        <p>A diversified basket of commodities, member currencies, and unresolved grievances. The basket's exact contents are sovereign information.</p>
+      </details>
+      <details>
+        <summary>Can my BUX be frozen?</summary>
+        <p>Your holdings can be frozen by any one of five central banks, which is five times more secure than systems where only one bank can freeze you.</p>
+      </details>
+      <details>
+        <summary>Who audits the treasury?</summary>
+        <p>The New Development Bank audits itself annually and has never found anything, which is exactly what you want an audit to find.</p>
+      </details>
+      <details>
+        <summary>How do I acquire BUX?</summary>
+        <p>You don't, yet. There is no sale, no presale, no allocation for you, and no expectation of profit — a promise we intend to keep better than any currency in history. This whole thing is satire; see the disclaimer directly below.</p>
+      </details>
+      <details>
+        <summary>Is this website secure?</summary>
+        <p>This website is served over HTTPS, which already puts it one full certificate ahead of several proposals it parodies.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<div class="parody" id="disclaimer">
+  <div class="wrap">
+    <div class="eyebrow">The Actually Serious Part</div>
+    <h2>Parody Disclaimer</h2>
+    <p><strong>BRICSBUX is satire.</strong> This site is a parody commenting on proposals for intergovernmental digital currencies and the security questions they raise. It is not affiliated with, endorsed by, or in communication with BRICS, any member state, the New Development Bank, or any government or intergovernmental organization.</p>
+    <p>BUX is not an investment, not a financial product, and not for sale here. Nothing on this site is financial, legal, or diplomatic advice. There is no expectation of profit — there is barely an expectation of uptime. Do not send anyone money based on anything you read on this website.</p>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="sealrow">
+      <svg width="34" height="34" viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="47" fill="none" stroke="#9c7c34" stroke-width="3"/>
+        <path d="M50 24 L56.5 41 L74 41 L60 52 L65.5 69 L50 58.5 L34.5 69 L40 52 L26 41 L43.5 41 Z" fill="#9c7c34"/>
+      </svg>
+    </div>
+    <div class="small">© 2026 BRICSBUX · Bureau of Multipolar Monetary Affairs (which does not exist) · bricsbux.com</div>
+    <div class="small">Hard-pegged 1 BUX = 1 BUX since genesis. Peg integrity independently verified by the Technical Reserve.</div>
+  </div>
+</footer>
+
+</body>
+</html>
